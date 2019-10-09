@@ -5,7 +5,9 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  }
+  },
+  { path: 'searcmodal', loadChildren: './searcmodal/searcmodal.module#SearcmodalPageModule' },
+  { path: 'timeline', loadChildren: './timeline/timeline.module#TimelinePageModule' }
 ];
 @NgModule({
   imports: [

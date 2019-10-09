@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pesquisar Evento</ion-title>
+  </ion-toolbar>
+  <ion-fab vertical="top" horizontal="end" slot="fixed" (click)="closeModal()" >
+      <ion-fab-button color="light" size="small">
+        <ion-icon name="arrow-dropdown-circle"></ion-icon>
+      </ion-fab-button>
+  </ion-fab>
+</ion-header>
+<ion-searchbar (ngModelChange)="search($event)" [(ngModel)]="key" name="key"></ion-searchbar>
+
+<ion-content>
+  <ion-card *ngFor="let item of dados">
+    <ion-card-content>
+      <ion-label> Evento: {{item.event}}</ion-label>
+      <p [textContent]="formatData(item.timestamp)"></p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

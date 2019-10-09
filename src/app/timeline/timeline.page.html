@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Timeline</ion-title>
+  </ion-toolbar>
+  <ion-fab vertical="top" horizontal="end" slot="fixed" (click)="closeModal()" >
+    <ion-fab-button color="light" size="small">
+      <ion-icon name="arrow-dropdown-circle"></ion-icon>
+    </ion-fab-button>
+</ion-fab>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngIf="carregamento">
+      <ion-label>Aguarde o carregamento</ion-label>
+      <ion-progress-bar type="indeterminate"></ion-progress-bar>
+  </ion-item>
+  
+  <ion-row *ngFor="let item of dados">
+    <ion-col size="6">
+        <ion-chip>
+            <ion-icon name="close-circle"></ion-icon>
+            <ion-label [textContent]="nameLoja(item)"></ion-label>
+          </ion-chip>
+    </ion-col>
+    <ion-col size="6">
+      <ion-label>{{item.revenue | currency}}</ion-label>
+    </ion-col>
+    
+  </ion-row>
+</ion-content>
